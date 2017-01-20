@@ -29,5 +29,10 @@ describe('record', function(){
     assert.equal(0, recordStore.balance);
   });
 
+  it('can add a record', function(){
+    recordStore.addRecord(record1);
+    assert.deepEqual([record1], recordStore.inventory);
+  });
+
 
 });
