@@ -21,4 +21,13 @@ describe('record', function(){
     assert.equal("Edinburgh", recordStore.city);
   });
 
+  it('should start with empty inventory', function(){
+    assert.deepEqual([], recordStore.inventory);
+  });
+
+  it('should start with zero balance', function(){
+    assert.equal(0, recordStore.balance);
+  });
+
+
 });
