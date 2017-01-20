@@ -19,12 +19,14 @@ RecordStore.prototype = {
     return this.inventory.reduce(function(accumulator, record){
       return (accumulator + record.price);
     }, 0);
+  },
+  sellRecord: function(record){
+      var index = this.inventory.indexOf(record);
+      var sold = this.inventory.splice(index, 1);
+      this.balance += sold[0].price;
   } 
 };
 
-// getTotal: function(){
-//   return this.accounts.reduce(function(accumulator, account){
-//     return (accumulator + account.balance);
-//   },0);
+
 
 module.exports = RecordStore;

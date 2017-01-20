@@ -46,5 +46,13 @@ describe('record', function(){
     assert.equal(11.00, recordStore.getInventoryValue().toFixed(2));
   });
 
+  it('can sell record', function(){
+    recordStore.addRecord(record1);
+    recordStore.addRecord(record2);
+    recordStore.sellRecord(record1);
+    assert.equal(6.00, recordStore.balance);
+    assert.deepEqual([record2], recordStore.inventory);
+  });
+
 
 });
