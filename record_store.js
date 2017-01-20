@@ -1,8 +1,8 @@
-var RecordStore = function(name, city){
+var RecordStore = function(name, city, cashFloat){
   this.name = name;
   this.city = city;
   this.inventory = [];
-  this.balance = 0;
+  this.balance = cashFloat;
 };
 
 RecordStore.prototype = {

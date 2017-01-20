@@ -4,4 +4,8 @@ var RecordCollector = function(name, cash){
   this.collection = [];
 };
 
+RecordCollector.prototype = {
+  
+}
+
 module.exports = RecordCollector;

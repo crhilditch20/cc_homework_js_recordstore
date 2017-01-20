@@ -12,7 +12,7 @@ describe('record collector', function(){
   beforeEach(function(){
     record1 = new Record("David Bowie", "Blackstar", 6.00);
     record2 = new Record("Imelda May", "Tribal", 5.00);
-    recordStore = new RecordStore("Record Cave", "Edinburgh");
+    recordStore = new RecordStore("Record Cave", "Edinburgh", 300);
     recordCollector = new RecordCollector("Jeff", 30.00);
   });
 

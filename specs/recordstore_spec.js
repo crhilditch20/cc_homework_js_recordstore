@@ -10,7 +10,7 @@ describe('record', function(){
   beforeEach(function(){
     record1 = new Record("David Bowie", "Blackstar", 6.00);
     record2 = new Record("Imelda May", "Tribal", 5.00);
-    recordStore = new RecordStore("Record Cave", "Edinburgh");
+    recordStore = new RecordStore("Record Cave", "Edinburgh", 300);
   });
 
   it('should have a name', function(){
@@ -25,8 +25,8 @@ describe('record', function(){
     assert.deepEqual([], recordStore.inventory);
   });
 
-  it('should start with zero balance', function(){
-    assert.equal(0, recordStore.balance);
+  it('should start with balance of cash float', function(){
+    assert.equal(300, recordStore.balance);
   });
 
   it('can add a record', function(){
@@ -50,7 +50,7 @@ describe('record', function(){
     recordStore.addRecord(record1);
     recordStore.addRecord(record2);
     recordStore.sellRecord("Tribal");
-    assert.equal(5.00, recordStore.balance);
+    assert.equal(305.00, recordStore.balance);
     assert.deepEqual([record1], recordStore.inventory);
   });
 
@@ -58,7 +58,7 @@ describe('record', function(){
     recordStore.addRecord(record1);
     recordStore.addRecord(record2);
     recordStore.sellRecord("Tribal");
-    assert.equal(11.00, recordStore.getTotalValue());
+    assert.equal(311.00, recordStore.getTotalValue());
   });
 
 
