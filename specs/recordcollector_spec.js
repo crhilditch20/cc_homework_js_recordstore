@@ -28,4 +28,12 @@ describe('record collector', function(){
     assert.deepEqual([], recordCollector.collection);
   });
 
+  it('can buy record if can afford it', function(){
+    recordCollector.buyRecord(record1);
+    assert.equal(24.00, recordCollector.cash.toFixed(2));
+    assert.deepEqual([record1], recordCollector.collection);
+  });
+
+
+
 });

@@ -5,7 +5,14 @@ var RecordCollector = function(name, cash){
 };
 
 RecordCollector.prototype = {
-  
-}
+  buyRecord: function(record){
+    if (this.cash >= record.price){
+    this.collection.push(record);
+    this.cash -= record.price;
+    } else {
+    return "Not enough cash";
+    }
+  }
+};
 
 module.exports = RecordCollector;
