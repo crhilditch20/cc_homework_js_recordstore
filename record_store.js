@@ -20,8 +20,10 @@ RecordStore.prototype = {
       return (accumulator + record.price);
     }, 0);
   },
-  sellRecord: function(record){
-      var index = this.inventory.indexOf(record);
+  sellRecord: function(recordTitle){
+      var index = this.inventory.findIndex(function(record){
+        return (record.title === recordTitle)
+      });
       var sold = this.inventory.splice(index, 1);
       this.balance += sold[0].price;
   } 

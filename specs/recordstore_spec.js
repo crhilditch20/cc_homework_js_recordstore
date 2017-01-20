@@ -49,9 +49,16 @@ describe('record', function(){
   it('can sell record', function(){
     recordStore.addRecord(record1);
     recordStore.addRecord(record2);
-    recordStore.sellRecord(record1);
-    assert.equal(6.00, recordStore.balance);
-    assert.deepEqual([record2], recordStore.inventory);
+    recordStore.sellRecord("Tribal");
+    assert.equal(5.00, recordStore.balance);
+    assert.deepEqual([record1], recordStore.inventory);
+  });
+
+  it('can get cash and value of inventory', function(){
+    recordStore.addRecord(record1);
+    recordStore.addRecord(record2);
+    recordStore.sellRecord("Tribal");
+    assert.equal(11.00, recordStore.getTotalValue());
   });
 
 
