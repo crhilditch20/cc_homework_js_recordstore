@@ -46,6 +46,7 @@ describe('record collector', function(){
     collector1.sellRecord(record1, collector2);
     assert.deepEqual([], collector1.collection);
     assert.deepEqual([record1], collector2.collection);
+    assert.equal(30.00, collector1.cash);
   });
 
 

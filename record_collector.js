@@ -17,6 +17,7 @@ RecordCollector.prototype = {
     var index = this.collection.indexOf(record);
     var sold = this.collection.splice(index, 1);
     collector.buyRecord(sold[0]);
+    this.cash += record.price;
   }
 };
 
