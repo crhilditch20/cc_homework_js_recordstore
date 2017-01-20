@@ -61,7 +61,7 @@ describe('record', function(){
   it('can get cash and value of inventory', function(){
     recordStore.addRecord(record1);
     recordStore.addRecord(record2);
-    recordStore.sellRecord("Tribal", collector);
+    recordStore.sellRecord("Tribal");
     assert.equal(311.00, recordStore.getTotalValue());
   });
 
