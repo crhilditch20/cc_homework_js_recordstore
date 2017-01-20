@@ -12,6 +12,11 @@ RecordCollector.prototype = {
     } else {
     return "Not enough cash";
     }
+  },
+  sellRecord: function(record, collector){
+    var index = this.collection.indexOf(record);
+    var sold = this.collection.splice(index, 1);
+    collector.buyRecord(sold[0]);
   }
 };
 
