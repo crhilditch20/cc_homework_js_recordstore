@@ -26,6 +26,11 @@ RecordStore.prototype = {
       });
       var sold = this.inventory.splice(index, 1);
       this.balance += sold[0].price;
+  },
+  getTotalValue: function(){
+    var inventoryValue = this.getInventoryValue();
+    var cashValue = this.balance;
+    return inventoryValue + cashValue;
   } 
 };
 
