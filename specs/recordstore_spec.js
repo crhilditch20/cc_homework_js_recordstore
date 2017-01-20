@@ -40,5 +40,11 @@ describe('record', function(){
     assert.equal("David Bowie: Blackstar,Imelda May: Tribal", recordStore.listInventory());
   });
 
+  it('can get total value of inventory', function(){
+    recordStore.addRecord(record1);
+    recordStore.addRecord(record2);
+    assert.equal(11.00, recordStore.getInventoryValue().toFixed(2));
+  });
+
 
 });

@@ -14,9 +14,17 @@ RecordStore.prototype = {
       return record.artist + ": " + record.title;
     });
      return list.toString();
+  },
+  getInventoryValue: function(){
+    return this.inventory.reduce(function(accumulator, record){
+      return (accumulator + record.price);
+    }, 0);
   } 
 };
 
-
+// getTotal: function(){
+//   return this.accounts.reduce(function(accumulator, account){
+//     return (accumulator + account.balance);
+//   },0);
 
 module.exports = RecordStore;
