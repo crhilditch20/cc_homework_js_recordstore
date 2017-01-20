@@ -20,12 +20,13 @@ RecordStore.prototype = {
       return (accumulator + record.price);
     }, 0);
   },
-  sellRecord: function(recordTitle){
-      var index = this.inventory.findIndex(function(record){
+  sellRecord: function(recordTitle, collector){
+    var index = this.inventory.findIndex(function(record){
         return (record.title === recordTitle)
       });
-      var sold = this.inventory.splice(index, 1);
-      this.balance += sold[0].price;
+    var sold = this.inventory.splice(index, 1);
+    this.balance += sold[0].price;
+    collector.buyRecord(sold[0]);
   },
   getTotalValue: function(){
     var inventoryValue = this.getInventoryValue();
