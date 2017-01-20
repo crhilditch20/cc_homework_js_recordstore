@@ -4,6 +4,12 @@ var Record = function(artist, title, price){
   this.price = price;
 };
 
+Record.prototype = {
+  setPrice: function(newPrice){
+    this.price = newPrice;
+  }
+};
+
 
 
 module.exports = Record;
