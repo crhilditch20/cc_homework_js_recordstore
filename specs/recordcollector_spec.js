@@ -34,6 +34,11 @@ describe('record collector', function(){
     assert.deepEqual([record1], recordCollector.collection);
   });
 
+  it('cannot buy record if cannot afford it', function(){
+    recordCollector.cash = 0;
+    assert.equal("Not enough cash", recordCollector.buyRecord(record1));
+  });
+
 
 
 });
