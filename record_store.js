@@ -8,7 +8,13 @@ var RecordStore = function(name, city){
 RecordStore.prototype = {
   addRecord: function(record){
     this.inventory.push(record);
-  }
+  },
+  listInventory: function(){
+    var list = this.inventory.map(function(record){
+      return record.artist + ": " + record.title;
+    });
+     return list.toString();
+  } 
 };
 
 

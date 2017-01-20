@@ -34,5 +34,11 @@ describe('record', function(){
     assert.deepEqual([record1], recordStore.inventory);
   });
 
+  it('can list inventory', function(){
+    recordStore.addRecord(record1);
+    recordStore.addRecord(record2);
+    assert.equal("David Bowie: Blackstar,Imelda May: Tribal", recordStore.listInventory());
+  });
+
 
 });
