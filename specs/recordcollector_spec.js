@@ -49,6 +49,12 @@ describe('record collector', function(){
     assert.equal(30.00, collector1.cash);
   });
 
+  it('cannot sell if collector cannot afford it', function(){
+    collector2.cash = 0;
+    collector1.buyRecord(record1);
+    assert.equal("Collector can't afford record", collector1.sellRecord(record1, collector2));
+  });
+
 
 
 });

@@ -16,8 +16,11 @@ RecordCollector.prototype = {
   sellRecord: function(record, collector){
     var index = this.collection.indexOf(record);
     var sold = this.collection.splice(index, 1);
-    collector.buyRecord(sold[0]);
-    this.cash += record.price;
+      if(collector.buyRecord(sold[0]) != "Not enough cash"){
+          this.cash += record.price;
+        } else {
+        return "Collector can't afford record";
+        }
   }
 };
 
