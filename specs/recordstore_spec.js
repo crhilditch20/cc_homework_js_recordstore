@@ -58,6 +58,14 @@ describe('record', function(){
     assert.deepEqual([record2], collector.collection);
   });
 
+  it('can sell record without collector', function(){
+    recordStore.addRecord(record1);
+    recordStore.addRecord(record2);
+    recordStore.sellRecord("Tribal");
+    assert.equal(305.00, recordStore.balance);
+    assert.deepEqual([record1], recordStore.inventory);
+  })
+
   it('can get cash and value of inventory', function(){
     recordStore.addRecord(record1);
     recordStore.addRecord(record2);
