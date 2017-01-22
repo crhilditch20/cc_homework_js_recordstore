@@ -25,10 +25,11 @@ RecordStore.prototype = {
         return (record.title === recordTitle)
       });
     var sold = this.inventory.splice(index, 1);
-    this.balance += sold[0].price;
     if (collector){
-    collector.buyRecord(sold[0]);
+      collector.buyRecord(sold[0]);
     }
+    this.balance += sold[0].price;
+    
   },
   getTotalValue: function(){
     var inventoryValue = this.getInventoryValue();

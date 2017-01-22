@@ -5,22 +5,28 @@ var RecordCollector = function(name, cash){
 };
 
 RecordCollector.prototype = {
+  checkCanAffordRecord: function(record){
+    return (this.cash >= record.price);
+  },
+
   buyRecord: function(record){
-    if (this.cash >= record.price){
+    if (this.checkCanAffordRecord(record)){
     this.collection.push(record);
     this.cash -= record.price;
     } else {
     return "Not enough cash";
     }
   },
+ 
   sellRecord: function(record, collector){
-    var index = this.collection.indexOf(record);
-    var sold = this.collection.splice(index, 1);
-      if(collector.buyRecord(sold[0]) != "Not enough cash"){
-          this.cash += record.price;
-        } else {
-        return "Collector can't afford record";
-        }
+    if(collector.checkCanAffordRecord(record)){
+      var index = this.collection.indexOf(record);
+      var sold = this.collection.splice(index, 1);
+        this.cash += record.price;
+        collector.buyRecord(record);
+      } else {
+      return "Collector can't afford record";
+      }  
   }
 };
 

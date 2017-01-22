@@ -3,7 +3,7 @@ var Record = require('../record');
 var RecordStore = require('../record_store');
 var RecordCollector = require('../record_collector');
 
-describe('record', function(){
+describe('record_store', function(){
   var record1; 
   var record2;
   var recordStore;

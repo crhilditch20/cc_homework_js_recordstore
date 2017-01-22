@@ -30,6 +30,11 @@ describe('record collector', function(){
     assert.deepEqual([], collector1.collection);
   });
 
+  it('can check if able to afford record', function(){
+    assert.equal(true, collector1.checkCanAffordRecord(record1));
+
+  });
+
   it('can buy record if can afford it', function(){
     collector1.buyRecord(record1);
     assert.equal(24.00, collector1.cash.toFixed(2));
